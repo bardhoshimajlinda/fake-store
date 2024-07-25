@@ -1,8 +1,8 @@
-import MainLayout from "../layouts/MainLayout";
 import categoryImage from "../assets/electronics.jpg";
 import categoryImage1 from "../assets/jewelry.jpeg";
 import categoryImage2 from "../assets/mensClothing.webp";
 import categoryImage3 from "../assets/womenClothing.jpg";
+import MainLayout from "../layouts/MainLayout";
 
 const Home = () => {
   const categories = [
