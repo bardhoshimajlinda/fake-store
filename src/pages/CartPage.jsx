@@ -84,25 +84,3 @@ const CartPage = () => {
 };
 
 export default CartPage;
-//   return (
-//     <MainLayout>
-//       <h1>Your Cart</h1>
-//       {cart.length > 0 ? (
-//         <div className="cart-items">
-//           {cart.map((item, index) => (
-//             <div key={index} className="cart-item">
-//               <img src={item.image} alt={item.title} />
-//               <h3>{item.title}</h3>
-//               <p>{item.price}$</p>
-//               <p></p>
-//             </div>
-//           ))}
-//         </div>
-//       ) : (
-//         <p>Your cart is empty</p>
-//       )}
-//     </MainLayout>
-//   );
-// };
-
-// export default CartPage;
