@@ -12,7 +12,8 @@ const ListingPage = () => {
     ? products.filter((product) => product.category === categoryId)
     : products;
 
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) return <div className="spinner">Loading...</div>;
+  if (!filteredProducts.length) return <h2>No products found</h2>;
   return (
     <MainLayout>
       {filteredProducts.length > 0 ? (
