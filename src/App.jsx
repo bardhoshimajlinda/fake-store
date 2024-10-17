@@ -4,6 +4,7 @@ import CartPage from "./pages/CartPage";
 import Home from "./pages/Home";
 import ListingPage from "./pages/ListingPage";
 import Product from "./pages/Product";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/products/:productId" element={<Product />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/products" element={<ListingPage />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
