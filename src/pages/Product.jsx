@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import StarRating from "../components/StarRating";
 import useGetProduct from "../hooks/useGetProduct";
 import MainLayout from "../layouts/MainLayout";
+import Breadcrumb from "../components/Breadcrumb";
 
 const Product = () => {
   const { productId } = useParams();
@@ -26,6 +27,7 @@ const Product = () => {
   return (
     <MainLayout>
       <div className="card">
+        <Breadcrumb category={product.category} productName={product.title} />
         <div className="product-item">
           <div className="product-image">
             <img src={product.image} alt="Product Image" />
