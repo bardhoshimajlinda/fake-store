@@ -32,7 +32,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <nav>
+    <nav className="header">
       <ul className="navigation">
         {navLinks.map((link) => (
           <li
