@@ -3,6 +3,7 @@ import Category from "../components/Category";
 import ProductCard from "../components/ProductCard";
 import useGetPosts from "../hooks/useGetProducts";
 import MainLayout from "../layouts/MainLayout";
+import Loader from "../components/Loader";
 
 const ListingPage = () => {
   const { categoryId } = useParams();
@@ -12,7 +13,7 @@ const ListingPage = () => {
     ? products.filter((product) => product.category === categoryId)
     : products;
 
-  if (isLoading) return <div className="spinner">Loading...</div>;
+  if (isLoading) return <Loader />;
   if (!filteredProducts.length) return <h2>No products found</h2>;
   return (
     <MainLayout>

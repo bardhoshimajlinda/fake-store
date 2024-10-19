@@ -4,13 +4,14 @@ import StarRating from "../components/StarRating";
 import useGetProduct from "../hooks/useGetProduct";
 import MainLayout from "../layouts/MainLayout";
 import Breadcrumb from "../components/Breadcrumb";
+import Loader from "../components/Loader";
 
 const Product = () => {
   const { productId } = useParams();
   const { isLoading, product, isError, addToCart } = useGetProduct(productId);
   const [addedToCart, setAddedToCart] = useState(false);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
   if (isError || !product)
     return (
       <div>
@@ -33,25 +34,23 @@ const Product = () => {
             <img src={product.image} alt="Product Image" />
           </div>
           <div className="productContent">
-            <div className="rating-reviews">
-              <StarRating rating={product.rating.rate} />
-              <span className="reviews">{product.rating.count} reviews</span>
+            <div className="product_header_container">
+              <h1>{product.title}</h1>
+              <div className="price-container">
+                <span className="price-value">{product.price}$</span>{" "}
+              </div>
             </div>
-            <h3 className="title">{product.title}</h3>
-            <div className="category">
-              <strong>Category: </strong>
-              {product.category}
+            <hr />
+            <div className="product-information">
+              <div className="rating-reviews">
+                <StarRating rating={product.rating.rate} />
+                <span className="reviews">{product.rating.count} reviews</span>
+              </div>
+
+              <p className="description">{product.description}</p>
+              <button onClick={handleAddToCart}>Add to Cart</button>
+              {addedToCart && <p style={{ color: "green" }}>Added to Cart!</p>}
             </div>
-            <span className="price">
-              <strong>Price: </strong>
-              {product.price}$
-            </span>
-            <p className="description">
-              <strong>Description: </strong>
-              {product.description}
-            </p>
-            <button onClick={handleAddToCart}>Add to Cart</button>
-            {addedToCart && <p style={{ color: "green" }}>Added to Cart!</p>}
           </div>
         </div>
       </div>
